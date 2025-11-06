@@ -74,26 +74,26 @@ def draw(drifters, control, start_point, model):
     # draw_hr_ndcg(results, 'NDCG', control['k'], start_point, model)
 # %%
 warnings.filterwarnings("ignore")
-model = 'BPR' # BPR, BiVAECF, HPF, MF, SVD
-drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM'] #'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM'
-start_point = 1000
-refit_times = 10
-# %%
-control = {
-    'path': 'RecData',
-    'synth_control': None,
-    'RecData_control': None,
-    'k': 10,
-    'train_size': 1000,
-    'test_size': 20000,
-    'seed': 42,
-    'model': 'NB',
-    'drifter': 'DDM'}
-control['RecData_control'] = {
-    'n_users': 100,
-    'n_items': 50,
-    'n_features': 5}
-# %%
-for i in [6]:
-    control['seed'] = i
-    draw(drifters, control, start_point, model)
+if __name__ == '__main__':
+    model = 'BPR'  # BPR, BiVAECF, HPF, MF, SVD
+    drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M', 'VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
+    start_point = 1000
+    refit_times = 10
+    # %%
+    control = {
+        'path': 'RecData',
+        'synth_control': None,
+        'RecData_control': None,
+        'k': 10,
+        'train_size': 1000,
+        'test_size': 20000,
+        'seed': 42,
+        'model': 'NB',
+        'drifter': 'DDM'}
+    control['RecData_control'] = {
+        'n_users': 100,
+        'n_items': 50,
+        'n_features': 5}
+    for i in [6]:
+        control['seed'] = i
+        draw(drifters, control, start_point, model)

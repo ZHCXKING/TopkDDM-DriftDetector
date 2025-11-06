@@ -84,22 +84,23 @@ def draw(drifters, control, start_point, model, refit_times):
     # df.to_excel('table/twitch.xlsx')
 # %%
 warnings.filterwarnings("ignore")
-model = 'BiVAECF' # BPR, BiVAECF, HPF, MF, SVD
-drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM'] #'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM'
-start_point = 1
-k_fold = 10
-refit_times = 10
-control = {
-    'path': 'twitch', #amazon, ml-latest, twitch
-    'synth_control': None,
-    'RecData_control': None,
-    'k': 10,
-    'train_size': 500,
-    'vaild_size': 0,
-    'test_size': 20000,
-    'seed': 42,
-    'model': 'MLP',
-    'drifter': 'Topk-DDM'}
-for i in range(200):
-    control['seed'] = i
-    df = draw(drifters, control, start_point, model, refit_times)
+if __name__ == '__main__':
+    model = 'BPR' # BPR, BiVAECF, HPF, MF, SVD
+    drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
+    start_point = 1
+    k_fold = 10
+    refit_times = 10
+    control = {
+        'path': 'twitch', #amazon, ml-latest, twitch
+        'synth_control': None,
+        'RecData_control': None,
+        'k': 10,
+        'train_size': 500,
+        'vaild_size': 0,
+        'test_size': 20000,
+        'seed': 42,
+        'model': 'MLP',
+        'drifter': 'Topk-DDM'}
+    for i in range(200):
+        control['seed'] = i
+        df = draw(drifters, control, start_point, model, refit_times)

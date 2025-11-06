@@ -95,25 +95,26 @@ def run_model(sheet_name, drifters, widths, noises, k_list, control):
     return df
 # %%
 warnings.filterwarnings("ignore")
-control = {
-    'path': 'RBF',
-    'synth_control': None,
-    'RecData_control': None,
-    'k': 3,
-    'train_size': 500,
-    'test_size': 5000,
-    'seed': 42,
-    'model': 'MLP',
-    'drifter': 'DDM'}
-control['synth_control'] = {
-    'noise_percentage': 0,
-    'position': 2500,
-    'width': 500}
-NUM_RUNS = 100
-k_list = [10]
-noises = [0.01, 0.05, 0.1, 0.2]
-drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M', 'VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
-widths = [1000, 2000]
-path = 'table/results.xlsx'
-sheet_name = 'noise'
-results = run_model(sheet_name, drifters, widths, noises, k_list, control)
+if __name__ == '__main__':
+    control = {
+        'path': 'RBF',
+        'synth_control': None,
+        'RecData_control': None,
+        'k': 3,
+        'train_size': 500,
+        'test_size': 5000,
+        'seed': 42,
+        'model': 'MLP',
+        'drifter': 'DDM'}
+    control['synth_control'] = {
+        'noise_percentage': 0,
+        'position': 2500,
+        'width': 500}
+    NUM_RUNS = 100
+    k_list = [10]
+    noises = [0.01, 0.05, 0.1, 0.2]
+    drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M', 'VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
+    widths = [1000, 2000]
+    path = 'table/results.xlsx'
+    sheet_name = 'result'
+    results = run_model(sheet_name, drifters, widths, noises, k_list, control)
