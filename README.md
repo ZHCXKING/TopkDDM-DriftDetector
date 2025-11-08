@@ -1,6 +1,6 @@
 # Top-k DDM: A Rank-Sensitive Concept Drift Detection Framework for Recommendation Systems
 
-This framework is specifically designed to address the concept drift problem in recommender systems, particularly the challenge posed by the dynamic changes in user preferences over time, aiming to improve the long-term performance of recommender systems. Traditional drift detection methods (such as DDM) rely on the error rate of classification tasks and cannot effectively capture the decline in Top-K ranking quality in recommender systems. Top-k DDM solves this problem through an innovative two-stage mechanism, making it more sensitive and robust to recommender tasks.
+This framework is specifically designed to address the concept drift problem in recommender systems, particularly the challenge posed by the dynamic changes in user preferences over time, aiming to improve the long-term performance of recommender systems. Traditional drift detection methods (such as DDM) rely on the error rate of classification tasks and cannot effectively capture the decline in Top-k ranking quality in recommender systems. Top-k DDM solves this problem through an innovative two-stage mechanism, making it more sensitive and robust to recommender tasks.
 
 ## Project core functions
 
@@ -8,7 +8,7 @@ This framework is specifically designed to address the concept drift problem in 
 - **Baseline algorithm integration**：It includes several classic drift detection methods as baseline comparisons.
 - **Synthetic data generation**：Supports generating recommendation system datasets with artificial drift events.
 - **Real dataset processing**：Supports processing and experimentation with real Twitch datasets.
-- **Performance evaluation**：Calculate evaluation metrics for recommender systems such as HR@K and NDCG@K.
+- **Performance evaluation**：Calculate evaluation metrics for recommender systems such as HR@k and NDCG@k.
 
 ## Project Structure
 
@@ -37,7 +37,7 @@ Master/
 Top-k DDM is our core method, which overcomes the limitation of traditional methods being unsuitable for recommendation ranking tasks. Its workflow consists of two stages:
 
 - **Phase 1: Performance Monitoring**：This stage transforms the actual rank of the recommended item into a probabilistic error signal using a sigmoid function. The lower the rank, the higher the probability of generating the error signal.
-- **Phase Two: Drift Verification**：The Classifier Two-Sample Test (C2ST) was used to determine whether there were significant differences in the distribution of the old and new data.
+- **Phase 2: Drift Verification**：The Classifier Two-Sample Test (C2ST) was used to determine whether there were significant differences in the distribution of the old and new data.
 
 ## Install dependencies
 

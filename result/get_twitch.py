@@ -85,7 +85,7 @@ def draw(drifters, control, start_point, model, refit_times):
 # %%
 warnings.filterwarnings("ignore")
 if __name__ == '__main__':
-    model = 'BPR' # BPR, BiVAECF, HPF, MF, SVD
+    model = 'BiVAECF' # BPR, BiVAECF, HPF, MF, SVD
     drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
     start_point = 1
     k_fold = 10
