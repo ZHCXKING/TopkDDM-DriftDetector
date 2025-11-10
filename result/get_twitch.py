@@ -85,7 +85,7 @@ def draw(drifters, control, start_point, model, refit_times):
 # %%
 warnings.filterwarnings("ignore")
 if __name__ == '__main__':
-    model = 'BiVAECF' # BPR, BiVAECF, HPF, MF, SVD
+    model = 'BPR' # BPR, BiVAECF, HPF, MF, SVD
     drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M','VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
     start_point = 1
     k_fold = 10
@@ -101,6 +101,6 @@ if __name__ == '__main__':
         'seed': 42,
         'model': 'MLP',
         'drifter': 'Topk-DDM'}
-    for i in range(200):
+    for i in range(200):  # 2, 10, 26, 30, 45, 54, 55, 57
         control['seed'] = i
         df = draw(drifters, control, start_point, model, refit_times)

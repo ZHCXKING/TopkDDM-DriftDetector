@@ -87,13 +87,16 @@ if __name__ == '__main__':
         'k': 10,
         'train_size': 1000,
         'test_size': 20000,
-        'seed': 42,
+        'seed': 6,
         'model': 'NB',
         'drifter': 'DDM'}
     control['RecData_control'] = {
         'n_users': 100,
         'n_items': 50,
         'n_features': 5}
-    for i in [6]:
+    # BPR: 6, 14, 26, 38
+    # BiVAECF: 6, 38, 88, 159
+    # HPF: 32, 42, 94, 96
+    for i in [6, 14, 26, 38]:
         control['seed'] = i
         draw(drifters, control, start_point, model)

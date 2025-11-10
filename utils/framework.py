@@ -201,6 +201,7 @@ class Framework:
             self.drifter.set_reference(np.array(x_set), np.array(y_set))
         
         HR_list, NDCG_list, refits = [], [], []
+        # rows = []  # 新增修改，None
         HR_sum, NDCG_sum = 0.0, 0.0
         start_cpu_time = time.process_time()
         for i, row in enumerate(test_df.itertuples(index = False)):
@@ -230,7 +231,7 @@ class Framework:
             else:
                 self.drifter.update(error)
             if self.drifter.drift_detected and self.drifter_refit and len(refits) <= refit_times:
-                refit_data = rows[-self.train_size:] # !!
+                refit_data = rows[-self.train_size:] # 新增修改 refit_data = rows[-self.train_size:], refit_data = rows
                 refit_set = Dataset.build(refit_data, global_uid_map=uid_map, global_iid_map=iid_map, seed=self.seed)
                 self.model.fit(refit_set)
                 if del_offset:
@@ -240,6 +241,7 @@ class Framework:
                     user_embed_matrix = self.model.get_user_vectors()
                     item_embed_matrix = self.model.get_item_vectors()
                 refits.append(i)
+                # rows = []  # 新增修改， None
         end_cpu_time = time.process_time()
         cpu_elapsed = end_cpu_time - start_cpu_time
         return HR_list, NDCG_list, refits, cpu_elapsed

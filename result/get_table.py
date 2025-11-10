@@ -112,7 +112,7 @@ if __name__ == '__main__':
         'width': 500}
     NUM_RUNS = 100
     k_list = [10]
-    noises = [0.01, 0.05, 0.1, 0.2]
+    noises = [0.05, 0.1]
     drifters = ['Topk-DDM', 'DDM', 'MWDDM-H', 'MWDDM-M', 'VFDDM-H', 'VFDDM-M', 'VFDDM-K', 'EDDM']
     widths = [1000, 2000]
     path = 'table/results.xlsx'
