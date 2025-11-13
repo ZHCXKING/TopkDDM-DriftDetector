@@ -141,7 +141,6 @@ class Topk_DDM:
         self.min_batch_samples = min_batch_samples
         self.Placeholder = Placeholder if Placeholder is not None else self.k + 1
         self.reference_data = None
-        self.min_batch_samples = min_batch_samples
         self.reclean()
     def reclean(self):
         self.new_data = []

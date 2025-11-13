@@ -1,4 +1,4 @@
-# Top-$k$ DDM: A novel two-stage concept drift detection framework for recommendation systems
+# Top-k DDM: A novel two-stage concept drift detection framework for recommendation systems
 
 This framework is specifically designed to address the concept drift problem in recommender systems, particularly the challenge posed by the dynamic changes in user preferences over time, aiming to improve the long-term performance of recommender systems. Traditional drift detection methods (such as DDM) rely on the error rate of classification tasks and cannot effectively capture the decline in Top-k ranking quality in recommender systems. Top-k DDM solves this problem through an innovative two-stage mechanism, making it more sensitive and robust to recommender tasks.
 
